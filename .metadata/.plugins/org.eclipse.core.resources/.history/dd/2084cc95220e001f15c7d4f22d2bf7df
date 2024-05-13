@@ -1,0 +1,9 @@
+package com.gaurang.blog.services;
+
+import com.gaurang.blog.entities.User;
+import com.gaurang.blog.payloads.UserDto;
+
+public interface UserService {
+
+	UserDto createUser(UserDto user);
+}
