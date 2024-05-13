@@ -1,0 +1,22 @@
+package com.gaurang.blog.payloads;
+
+import java.util.Date;
+
+import com.gaurang.blog.entities.Category;
+import com.gaurang.blog.entities.User;
+
+public class PostDto {
+
+	private String title;
+
+	private String content;
+	
+	private String imageName;
+	
+	private Date addedDate;
+	
+	private Category category;
+	
+	private User user;
+
+}

@@ -1,0 +1,5 @@
+package com.gaurang.blog.payloads;
+
+public class PostDto {
+
+}

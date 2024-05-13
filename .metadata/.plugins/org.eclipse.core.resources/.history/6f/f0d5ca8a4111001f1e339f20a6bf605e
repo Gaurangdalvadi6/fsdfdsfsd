@@ -1,0 +1,6 @@
+package com.gaurang.blog.services;
+
+public interface PostService {
+
+	
+}

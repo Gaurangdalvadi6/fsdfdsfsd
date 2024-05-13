@@ -1,0 +1,33 @@
+package com.gaurang.blog.services;
+
+import java.util.List;
+
+import com.gaurang.blog.entities.Post;
+import com.gaurang.blog.payloads.PostDto;
+
+public interface PostService {
+
+	// create
+	
+	Post createPost(PostDto postDto);
+	
+	// update
+	Post updatePost(PostDto postDto,int postId);
+	
+	// delete
+	void deletePost(int postId);
+	
+	// get single Post
+	Post getPostById(PostDto postDto,int postId);
+	
+	//get all
+	List<Post> getAllPost();
+	
+	// get All Post By Category
+	List<Post> getPostsByCategory(int categoryId);
+	
+	// get All posts By User
+	List<Post> getPostsByUser(int userId);
+	
+	List<Post> searchPosts(String keyword);
+}
