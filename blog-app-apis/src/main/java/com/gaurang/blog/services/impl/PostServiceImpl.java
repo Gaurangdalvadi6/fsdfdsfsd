@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.gaurang.blog.entities.Category;
@@ -16,6 +17,7 @@ import com.gaurang.blog.entities.Post;
 import com.gaurang.blog.entities.User;
 import com.gaurang.blog.exceptions.ResourceNotFoundException;
 import com.gaurang.blog.payloads.PostDto;
+import com.gaurang.blog.payloads.PostResponse;
 import com.gaurang.blog.repositories.CategoryRepo;
 import com.gaurang.blog.repositories.PostRepo;
 import com.gaurang.blog.repositories.UserRepo;
@@ -95,18 +97,32 @@ public class PostServiceImpl implements PostService {
 //				.collect(Collectors.toList());
 //		return list;
 //	}
-	
+
 	@Override
-	public List<PostDto> getAllPost(Integer pageNumber, Integer pageSize) {
-		Pageable p = PageRequest.of(pageNumber, pageSize);
-		
+	public PostResponse getAllPost(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
+		Sort sort = null;
+		if (sortDir.equalsIgnoreCase("asc")) {
+			sort = Sort.by(sortBy).ascending();
+		} else {
+			sort = Sort.by(sortBy).descending();
+		}
+		Pageable p = PageRequest.of(pageNumber, pageSize, sort);
+
 		Page<Post> pagePost = this.postRepo.findAll(p);
 		List<Post> allPost = pagePost.getContent();
 		List<PostDto> list = allPost.stream().map(post -> this.modelMapper.map(post, PostDto.class))
 				.collect(Collectors.toList());
-		return list;
-	}
 
+		PostResponse postResponse = new PostResponse();
+		postResponse.setContent(list);
+		postResponse.setPageNumber(pagePost.getNumber());
+		postResponse.setPageSize(pagePost.getSize());
+		postResponse.setTotalElements(pagePost.getTotalElements());
+		postResponse.setTotalPages(pagePost.getTotalPages());
+		postResponse.setLastPage(pagePost.isLast());
+
+		return postResponse;
+	}
 
 	@Override
 	public List<PostDto> getPostsByCategory(int categoryId) {
@@ -132,12 +148,20 @@ public class PostServiceImpl implements PostService {
 		return list;
 	}
 
+//	@Override
+//	public List<PostDto> searchPosts(String keyword) {
+//		List<Post> posts = this.postRepo.findByTitleContaining(keyword);
+//		List<PostDto> list = posts.stream().map(post -> this.modelMapper.map(post, PostDto.class))
+//				.collect(Collectors.toList());
+//		return list;
+//	}
+	
 	@Override
 	public List<PostDto> searchPosts(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Post> posts = this.postRepo.searchByTitle("%"+keyword+"%");
+		List<PostDto> list = posts.stream().map(post -> this.modelMapper.map(post, PostDto.class))
+				.collect(Collectors.toList());
+		return list;
 	}
-
-	
 
 }

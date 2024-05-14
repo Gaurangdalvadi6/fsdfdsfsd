@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.gaurang.blog.payloads.PostDto;
+import com.gaurang.blog.payloads.PostResponse;
 
 
 public interface PostService {
@@ -22,7 +23,7 @@ public interface PostService {
 	PostDto getPostById(int postId);
 	
 	//get all
-	List<PostDto> getAllPost(Integer pageNumber,Integer pageSize);
+	PostResponse getAllPost(Integer pageNumber,Integer pageSize,String sortBy,String sortDir);
 //	List<PostDto> getAllPost();
 	
 	// get All Post By Category

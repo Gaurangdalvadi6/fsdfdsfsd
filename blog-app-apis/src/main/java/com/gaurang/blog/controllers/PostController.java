@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gaurang.blog.payloads.ApiResponse;
 import com.gaurang.blog.payloads.PostDto;
+import com.gaurang.blog.payloads.PostResponse;
 import com.gaurang.blog.services.PostService;
 
 @RestController
@@ -51,12 +52,14 @@ public class PostController {
 	
 //	 get All posts
 	@GetMapping("/posts")
-	public ResponseEntity<List<PostDto>> getAllPost(
+	public ResponseEntity<PostResponse> getAllPost(
 			@RequestParam(value = "pageNumber",defaultValue = "0",required = false)Integer pageNumber,
-			@RequestParam(value = "pageSize",defaultValue = "5",required = false) Integer pageSize
+			@RequestParam(value = "pageSize",defaultValue = "5",required = false) Integer pageSize,
+			@RequestParam(value = "sortBy",defaultValue = "postId",required = false) String sortBy,
+			@RequestParam(value = "sortDir",defaultValue = "asc",required = false) String sortDir
 			){
-		List<PostDto> allPost = this.postService.getAllPost(pageNumber,pageSize);
-		return new ResponseEntity<List<PostDto>>(allPost,HttpStatus.OK);
+		PostResponse postResponse = this.postService.getAllPost(pageNumber,pageSize,sortBy,sortDir);
+		return new ResponseEntity<PostResponse>(postResponse,HttpStatus.OK);
 	}
 	
 //	@GetMapping("/posts")
@@ -86,5 +89,13 @@ public class PostController {
 	{
 		this.postService.deletePost(postId);
 		return new ApiResponse("Post is delete successfully !!!", true);
+	}
+	
+	@GetMapping("/posts/search/{keywords}")
+	public ResponseEntity<List<PostDto>> searchPostByTitle(
+			@PathVariable("keywords") String keywords
+			){
+		List<PostDto> result = this.postService.searchPosts(keywords);
+		return new ResponseEntity<List<PostDto>>(result,HttpStatus.OK);
 	}
 }
