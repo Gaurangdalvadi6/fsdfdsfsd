@@ -8,6 +8,8 @@ import lombok.Setter;
 
 @Getter@Setter@NoArgsConstructor
 public class PostDto {
+	
+	private int postId;
 
 	private String title;
 
