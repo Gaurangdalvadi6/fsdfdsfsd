@@ -1,0 +1,5 @@
+package com.gaurang.blog.config;
+
+public class AppConstants {
+
+}

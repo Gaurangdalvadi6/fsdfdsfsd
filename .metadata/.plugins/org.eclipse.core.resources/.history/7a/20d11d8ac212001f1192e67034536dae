@@ -1,0 +1,15 @@
+package com.gaurang.blog.exceptions;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+public class FileNotFoundException extends RuntimeException {
+
+	private String resourceName;
+    private String fieldName;
+
+}

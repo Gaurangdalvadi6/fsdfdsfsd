@@ -1,0 +1,21 @@
+package com.gaurang.blog.exceptions;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+public class FileNotFoundException extends RuntimeException {
+
+	private String resourceName;
+    private String fieldName;
+
+//	public FileNotFoundException(String resourceName, String fieldName) {
+//		super(String.format("%s not found with %s", resourceName, fieldName));
+//		System.out.println("filenotfound is called");
+//        this.resourceName = resourceName;
+//        this.fieldName = fieldName;
+//	}
+}

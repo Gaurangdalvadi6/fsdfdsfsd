@@ -1,0 +1,10 @@
+package com.gaurang.blog.exceptions;
+
+import java.io.IOException;
+
+public class FileNotFoundException extends Exception {
+
+	public FileNotFoundException(String message,Throwable cause) {
+		super(message, cause);
+	}
+}
