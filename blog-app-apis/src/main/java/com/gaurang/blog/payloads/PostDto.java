@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.gaurang.blog.entities.Comment;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

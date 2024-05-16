@@ -1,0 +1,7 @@
+package com.gaurang.blog.config;
+
+
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+
+	
+}
