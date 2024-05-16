@@ -24,15 +24,17 @@ public class SecurityConfig {
 	@Autowired
 	private CustomUserDetailService customUserDetailService;
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		
-		http.csrf(customizer -> customizer.disable());
-		http.authorizeHttpRequests(requests -> requests.anyRequest().authenticated());
-		http.httpBasic(Customizer.withDefaults());
-		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-		return http.build();
-	}
+//	@Bean
+//	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+//		
+//		http.csrf(customizer -> customizer.disable());
+//		http.authorizeHttpRequests(requests -> requests.anyRequest().authenticated());
+//		http.httpBasic(Customizer.withDefaults());
+//		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//		return http.build();
+//	}
+
+	
 	
 //	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 //		auth.userDetailsService(this.customUserDetailService).passwordEncoder(passwordEncoder());
