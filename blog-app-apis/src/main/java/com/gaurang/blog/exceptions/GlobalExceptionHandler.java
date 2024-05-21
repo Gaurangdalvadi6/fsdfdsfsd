@@ -35,6 +35,13 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(resp,HttpStatus.BAD_REQUEST);
 	}
 	
+	@ExceptionHandler(ApiException.class)
+	public ResponseEntity<ApiResponse> handleApiException(ApiException ex){
+		String message = ex.getMessage();
+		ApiResponse apiResponse = new ApiResponse(message, false);
+		return new ResponseEntity<ApiResponse>(apiResponse,HttpStatus.BAD_REQUEST);
+	}
+	
 	@ExceptionHandler(FileNotFoundException.class)
 	public ResponseEntity<ApiResponse> handleFileNotFoundException(FileNotFoundException ex) {
 		String message = ex.getMessage();

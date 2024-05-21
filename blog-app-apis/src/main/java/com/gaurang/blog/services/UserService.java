@@ -5,6 +5,8 @@ import java.util.List;
 import com.gaurang.blog.payloads.UserDto;
 
 public interface UserService {
+	
+	UserDto registerNewUser(UserDto userDto);
 
 	UserDto createUser(UserDto user);
 
