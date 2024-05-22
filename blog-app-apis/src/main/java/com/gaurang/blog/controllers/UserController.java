@@ -43,7 +43,8 @@ public class UserController {
 	}
 
 	// Delete User
-	@PreAuthorize("hasRole('ADMIN')")
+//	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("{userId}")
 	public ResponseEntity<ApiResponse> deleteUser(@PathVariable int userId) {
 		this.userService.deleteUser(userId);

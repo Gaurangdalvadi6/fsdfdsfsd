@@ -1,5 +1,0 @@
-package com.gaurang.blog.exceptions;
-
-public class FileNotFoundException {
-
-}

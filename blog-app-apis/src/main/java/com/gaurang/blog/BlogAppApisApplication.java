@@ -34,7 +34,7 @@ import com.gaurang.blog.repositories.RoleRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
-		//	System.out.println(this.passwordEncoder.encode("gautam@123"));
+			//System.out.println(this.passwordEncoder.encode("parth@123"));
 		
 		try {
 			Role role = new Role();
@@ -43,7 +43,7 @@ import com.gaurang.blog.repositories.RoleRepo;
 			
 			Role role1 = new Role();
 			role1.setId(AppConstants.NORMAL_USER);
-			role1.setName("ROLE_NORMAL");
+			role1.setName("ROLE_USER");
 			
 			List<Role> roles = List.of(role,role1);
 			
