@@ -2,8 +2,11 @@ package com.product.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.product.payload.ProductDto;
 
+@Service
 public interface ProductService {
 
 	ProductDto registerProduct(ProductDto productDto,Long sId);

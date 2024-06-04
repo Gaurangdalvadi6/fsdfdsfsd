@@ -28,6 +28,9 @@ public class Product {
 	@Column(name = "product_name")
 	private String pName;
 	
+	@Column(name = "product_image")
+	private String pImage;
+	
 	@Column(name = "product_price")
 	private Long pPrice;
 	
