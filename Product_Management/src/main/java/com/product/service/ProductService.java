@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.product.payload.ProductDto;
+import com.product.repository.ProductResponse;
 
 @Service
 public interface ProductService {
@@ -13,7 +14,7 @@ public interface ProductService {
 	
 	ProductDto updateProduct(ProductDto productDto,Long pId,Long sId);
 	
-	List<ProductDto> getAllProduct();
+	ProductResponse getAllProduct(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 	
 	List<ProductDto> getAllProductBySId(Long sId);
 	

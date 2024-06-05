@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.product.config.AppConstants;
 import com.product.payload.ApiResponse;
 import com.product.payload.ProductDto;
+import com.product.repository.ProductResponse;
 import com.product.service.ProductService;
 
 import jakarta.validation.Valid;
@@ -56,10 +59,15 @@ public class ProductController {
 	}
 	
 	@GetMapping("/")
-	public ResponseEntity<List<ProductDto>> getAllProduct(){
+	public ResponseEntity<ProductResponse> getAllProduct(
+			@RequestParam(value = "pageNumber", defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,
+			@RequestParam(value = "pageSize", defaultValue = AppConstants.PAGE_SIZE, required = false) Integer pageSize,
+			@RequestParam(value = "sortBy", defaultValue = AppConstants.SORT_BY, required = false) String sortBy,
+			@RequestParam(value = "sortDir", defaultValue = AppConstants.SORT_DIR, required = false) String sortDir
+			){
 //		try {
-			List<ProductDto> allProduct = this.productService.getAllProduct();
-			return new ResponseEntity<List<ProductDto>>(allProduct,HttpStatus.OK);
+			ProductResponse allProduct = this.productService.getAllProduct(pageNumber, pageSize, sortBy, sortDir);
+			return new ResponseEntity<ProductResponse>(allProduct,HttpStatus.OK);
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //			return ResponseEntity.badRequest().build();

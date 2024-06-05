@@ -4,12 +4,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.product.exception.ResourceNotFoundException;
 import com.product.model.Product;
 import com.product.payload.ProductDto;
 import com.product.repository.ProductRepo;
+import com.product.repository.ProductResponse;
 import com.product.service.ProductService;
 
 @Service
@@ -55,11 +60,26 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<ProductDto> getAllProduct() {
-		List<Product> allProduct = this.productRepo.findAll();
+	public ProductResponse getAllProduct(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
+		Sort sort = null;
+		if (sortDir.equalsIgnoreCase("asc")) {
+			sort = Sort.by(sortBy).ascending();
+		} else {
+			sort = Sort.by(sortBy).descending();
+		}
+		Pageable p = PageRequest.of(pageNumber, pageSize, sort);
+		Page<Product> pageProduct = this.productRepo.findAll(p);
+		List<Product> allProduct = pageProduct.getContent();
 		
 		List<ProductDto> list = allProduct.stream().map(product -> this.modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
-		return list;
+		ProductResponse productResponse = new ProductResponse();
+		productResponse.setContent(list);
+		productResponse.setPageNumber(pageProduct.getNumber());
+		productResponse.setPageSize(pageProduct.getSize());
+		productResponse.setTotalElements(pageProduct.getTotalElements());
+		productResponse.setTotalPages(pageProduct.getTotalPages());
+		productResponse.setLastPage(pageProduct.isLast());
+		return productResponse;
 	}
 
 	@Override
