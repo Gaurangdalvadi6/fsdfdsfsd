@@ -1,8 +1,17 @@
 package com.product.payload;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.product.model.Seller;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductDto {
 
 	private Long sId;
@@ -22,61 +31,10 @@ public class ProductDto {
 	private String pCategory;
 
 	private String pDescription;
+	
+	@JsonIgnore
+	private Seller seller;
 
-	public Long getsId() {
-		return sId;
-	}
-
-	public void setsId(Long sId) {
-		this.sId = sId;
-	}
-
-	public Long getpId() {
-		return pId;
-	}
-
-	public void setpId(Long pId) {
-		this.pId = pId;
-	}
-
-	public String getpName() {
-		return pName;
-	}
-
-	public void setpName(String pName) {
-		this.pName = pName;
-	}
-
-	public String getpImage() {
-		return pImage;
-	}
-
-	public void setpImage(String pImage) {
-		this.pImage = pImage;
-	}
-
-	public Long getpPrice() {
-		return pPrice;
-	}
-
-	public void setpPrice(Long pPrice) {
-		this.pPrice = pPrice;
-	}
-
-	public String getpCategory() {
-		return pCategory;
-	}
-
-	public void setpCategory(String pCategory) {
-		this.pCategory = pCategory;
-	}
-
-	public String getpDescription() {
-		return pDescription;
-	}
-
-	public void setpDescription(String pDescription) {
-		this.pDescription = pDescription;
-	}
+	
 
 }

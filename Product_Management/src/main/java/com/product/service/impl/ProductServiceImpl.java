@@ -24,13 +24,14 @@ public class ProductServiceImpl implements ProductService{
 	public ProductDto registerProduct(ProductDto productDto, Long sId) {
 		
 		Product product = this.modelMapper.map(productDto, Product.class);
-		product.setPId(productDto.getpId());
+		product.setPId(productDto.getPId());
 		product.setSId(sId);
-		product.setPName(productDto.getpName());
-		product.setPPrice(productDto.getpPrice());
-		product.setPImage(productDto.getpImage());
-		product.setPCategory(productDto.getpCategory());
-		product.setPDescription(productDto.getpDescription());
+		product.setPName(productDto.getPName());
+		product.setPPrice(productDto.getPPrice());
+		product.setPImage(productDto.getPImage());
+		product.setPCategory(productDto.getPCategory());
+		product.setPDescription(productDto.getPDescription());
+//		product.setSeller(productDto.getSeller());
 		Product save = this.productRepo.save(product);
 		ProductDto productDto2 = this.modelMapper.map(save, ProductDto.class);
 		return productDto2;
@@ -42,11 +43,12 @@ public class ProductServiceImpl implements ProductService{
 		
 		product.setPId(pId);
 		product.setSId(sId);
-		product.setPName(productDto.getpName());
-		product.setPPrice(productDto.getpPrice());
-		product.setPImage(productDto.getpImage());
-		product.setPCategory(productDto.getpCategory());
-		product.setPDescription(productDto.getpDescription());
+		product.setPName(productDto.getPName());
+		product.setPPrice(productDto.getPPrice());
+		product.setPImage(productDto.getPImage());
+		product.setPCategory(productDto.getPCategory());
+		product.setPDescription(productDto.getPDescription());
+//		product.setSeller(productDto.getSeller());
 		Product update = this.productRepo.save(product);
 		ProductDto dto = this.modelMapper.map(update, ProductDto.class);
 		return dto;
