@@ -37,10 +37,12 @@ public class ProductController {
 	@PostMapping("/{sId}")
 	public ResponseEntity<ProductDto> registerProduct(@Valid @RequestBody ProductDto productDto, @PathVariable Long sId) {
 		try {
+			logger.info("Registering product with seller ID: {}", sId);
 			ProductDto registerProduct = this.productService.registerProduct(productDto, sId);
+			logger.info("Product registered successfully with ID: {}", registerProduct.getPId());
 			return new ResponseEntity<>(registerProduct, HttpStatus.CREATED);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error occurred while registering product: {}", e.getMessage(), e);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
@@ -49,11 +51,13 @@ public class ProductController {
 	public ResponseEntity<ProductDto> updateProduct(@Valid @RequestBody ProductDto productDto, @PathVariable Long sId,
 			@PathVariable Long pId) {
 		try {
+			logger.info("Updating product with ID: {} for seller ID: {}", pId, sId);
 			ProductDto updateProduct = this.productService.updateProduct(productDto, pId, sId);
+			logger.info("Product updated successfully with ID: {}", updateProduct.getPId());
 			return new ResponseEntity<>(updateProduct,HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			logger.error("Error occurred while updating product: {}", e.getMessage(), e);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}	
 	}
@@ -66,7 +70,9 @@ public class ProductController {
 			@RequestParam(value = "sortDir", defaultValue = AppConstants.SORT_DIR, required = false) String sortDir
 			){
 //		try {
+		 logger.info("Fetching all products with pageNumber: {}, pageSize: {}, sortBy: {}, sortDir: {}", pageNumber, pageSize, sortBy, sortDir);
 			ProductResponse allProduct = this.productService.getAllProduct(pageNumber, pageSize, sortBy, sortDir);
+			logger.info("Fetched all products successfully");
 			return new ResponseEntity<ProductResponse>(allProduct,HttpStatus.OK);
 //		} catch (Exception e) {
 //			e.printStackTrace();
@@ -76,19 +82,25 @@ public class ProductController {
 	
 	@GetMapping("/seller/{sellerId}")
 	public ResponseEntity<List<ProductDto>> getAllProductBySellerId(@PathVariable Long sellerId){
+		logger.info("Fetching all products for seller ID: {}", sellerId);
 			List<ProductDto> allProductBySId = this.productService.getAllProductBySId(sellerId);
+			 logger.info("Fetched all products for seller ID: {} successfully", sellerId);
 			return new ResponseEntity<List<ProductDto>>(allProductBySId,HttpStatus.OK);
 	}
 	
 	@GetMapping("/{pId}")
 	public ResponseEntity<ProductDto> getProductByProductId(@PathVariable Long pId){
+		 logger.info("Fetching product with ID: {}", pId);
 			ProductDto productByPId = this.productService.getProductByPId(pId);
+			logger.info("Fetched product with ID: {} successfully", pId);
 //			return productByPId != null?ResponseEntity.ok(productByPId):ResponseEntity.notFound().build();
 			return new ResponseEntity<ProductDto>(productByPId,HttpStatus.OK);
 	}
 	@DeleteMapping("/{pId}")
 	public ApiResponse deleteProduct(@PathVariable Long pId) {
+		logger.info("Deleting product with ID: {}", pId);
 		this.productService.deleteProduct(pId);
+		logger.info("Product with ID: {} deleted successfully", pId);
 		return new ApiResponse("Product Deleted Successfully!!!", true);
 	}
 }
