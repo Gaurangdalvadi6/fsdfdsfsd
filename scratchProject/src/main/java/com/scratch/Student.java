@@ -1,32 +1,41 @@
 package com.scratch;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "T_STUDENT")
 public class Student {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String firstName;
 	
 	private String lastName;
 	
+	@ManyToOne
+	@JoinColumn(name = "school_id")
+	private School school;
+	
+	@OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
+	private StudentProfile studentProfile;
+	
+	@Column(unique = true)
 	private String email;
 	
 	private Integer age;
 	
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Student(String firstName, String lastName, String email, Integer age) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.age = age;
-	}
+	
 
 	public Integer getId() {
 		return id;
@@ -68,5 +77,32 @@ public class Student {
 		this.age = age;
 	}
 	
-	
+	public School getSchool() {
+		return school;
+	}
+
+	public void setSchool(School school) {
+		this.school = school;
+	}
+
+	public StudentProfile getStudentProfile() {
+		return studentProfile;
+	}
+
+	public void setStudentProfile(StudentProfile studentProfile) {
+		this.studentProfile = studentProfile;
+	}
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(String firstName, String lastName, String email, Integer age) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.age = age;
+	}
 }
