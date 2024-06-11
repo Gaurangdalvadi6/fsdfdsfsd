@@ -2,6 +2,8 @@ package com.scratch;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,7 @@ public class School {
 	private String name;
 	
 	@OneToMany(mappedBy = "school")
+	@JsonManagedReference
 	private List<Student> student;
 
 	public Integer getId() {

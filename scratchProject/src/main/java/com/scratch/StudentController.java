@@ -1,0 +1,78 @@
+package com.scratch;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class StudentController {
+
+
+	private final StudentRepository repository;
+
+	public StudentController(StudentRepository repository) {
+		this.repository = repository;
+	}
+
+	@PostMapping("/students")
+	public StudentResponseDto post(@RequestBody StudentDto dto) {
+		var student = toStudent(dto);
+		var savedStudent = repository.save(student);
+		return toStudentResponseDto(savedStudent);
+	}
+
+	
+	
+	@GetMapping("/students")
+	public List<StudentResponseDto> findAllStudent() {
+		return repository.findAll().stream().map(this::toStudentResponseDto).collect(Collectors.toList());
+	}
+	
+//	@GetMapping("/students")
+//	public List<Student> findAllStudent() {
+//		return repository.findAll();
+//	}
+
+	@GetMapping("/students/{student-id}")
+	public Student findStudentById(@PathVariable("student-id") Integer id) {
+		return repository.findById(id).orElse(new Student());
+	}
+
+	@GetMapping("/students/search/{first-name}")
+	public List<Student> findStudentsByFirstName(@PathVariable("first-name") String firstName) {
+		return repository.findAllByFirstNameContaining(firstName);
+	}
+	
+	@DeleteMapping("/students/{id}")
+	@ResponseStatus(value = HttpStatus.OK)
+	public void deleteStudent(@PathVariable int id) {
+		repository.deleteById(id);
+	}
+	
+	private Student toStudent(StudentDto dto) {
+		var student = new Student();
+		student.setFirstName(dto.firstName());
+		student.setLastName(dto.lastName());
+		student.setEmail(dto.email());
+		
+		var school = new School();
+		school.setId(dto.schoolId());
+		
+		student.setSchool(school);
+		
+		return student;
+	}
+	
+	private StudentResponseDto toStudentResponseDto(Student student) {
+		return new StudentResponseDto(student.getFirstName(), student.getLastName(), student.getEmail());
+	}
+}
+

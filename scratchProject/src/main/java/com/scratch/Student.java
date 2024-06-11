@@ -1,5 +1,7 @@
 package com.scratch;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,19 +25,20 @@ public class Student {
 	
 	private String lastName;
 	
-	@ManyToOne
-	@JoinColumn(name = "school_id")
-	private School school;
 	
-	@OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
-	private StudentProfile studentProfile;
 	
 	@Column(unique = true)
 	private String email;
 	
 	private Integer age;
 	
+	@ManyToOne
+	@JoinColumn(name = "school_id")
+	@JsonBackReference
+	private School school;
 	
+	@OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
+	private StudentProfile studentProfile;
 
 	public Integer getId() {
 		return id;
