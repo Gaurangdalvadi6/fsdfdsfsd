@@ -11,4 +11,8 @@ import com.product.model.Seller;
 public interface SellerRepo extends JpaRepository<Seller, Long>{
 
 	Optional<Seller> findByEmail(String email);
+
+	void deleteAllById(Seller seller);
+
+	void deleteById(Seller seller);
 }

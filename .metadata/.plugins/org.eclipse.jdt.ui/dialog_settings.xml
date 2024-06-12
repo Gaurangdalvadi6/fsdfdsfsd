@@ -165,4 +165,6 @@
 	<section name="NewRecordWizardPage">
 		<item key="create_unimplemented" value="false"/>
 	</section>
+	<section name="RenameInformationPopup">
+	</section>
 </section>
