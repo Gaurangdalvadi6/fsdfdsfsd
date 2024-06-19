@@ -9560,3 +9560,19 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:s
 2024-06-18 23:06:19,594 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-06-18 23:06:19,599 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-06-18 23:06:19,601 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\User_Management\src\test\resources
+2024-06-19 21:07:03,738 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-06-19 21:07:52,807 [Worker-2: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-06-19 21:07:55,571 [Worker-2: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.product:Product_Management:0.0.1-SNAPSHOT @ C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\Product_Management\pom.xml.
+2024-06-19 21:07:57,664 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Product_Management/src/main/java
+2024-06-19 21:07:57,689 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Product_Management/src/main/resources
+2024-06-19 21:07:58,333 [Worker-13: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example.mapping:E-Learning_Platform:0.0.1-SNAPSHOT @ C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\E-Learning_Platform\pom.xml.
+2024-06-19 21:07:59,580 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-06-19 21:07:59,613 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-06-19 21:07:59,620 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\E-Learning_Platform\src\test\resources
+2024-06-19 21:07:59,681 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Product_Management/src/main/resources
+2024-06-19 21:07:59,705 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Product_Management/src/test/java
+2024-06-19 21:07:59,707 [Worker-2: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Product_Management/src/test/resources
+2024-06-19 21:08:01,117 [Worker-7: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.hotel:Hotel-Management:0.0.1-SNAPSHOT @ C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\Hotel-Management\pom.xml.
+2024-06-19 21:08:02,482 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-06-19 21:08:02,519 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-06-19 21:08:02,527 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\Hotel-Management\src\test\resources
