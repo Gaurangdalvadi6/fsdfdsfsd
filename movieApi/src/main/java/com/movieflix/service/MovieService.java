@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.movieflix.dto.MovieDto;
+import com.movieflix.dto.MoviePageResponse;
 
 @Service
 public interface MovieService {
@@ -17,5 +18,11 @@ public interface MovieService {
 	
 	List<MovieDto> getAllMovie();
 	
+	MovieDto updateMovie(Integer movieId,MovieDto movieDto,MultipartFile file) throws IOException;
 	
+	String deleteMovie(Integer movieId) throws IOException;
+	
+	MoviePageResponse getAllMoviesWithPagination(Integer pageNumber,Integer pageSize);
+	
+	MoviePageResponse getAllMoviesWithPaginationAndSorting(Integer pageNumber,Integer pageSize,String sortBy,String sortDir);
 }
