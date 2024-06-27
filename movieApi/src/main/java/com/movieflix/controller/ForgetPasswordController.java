@@ -57,7 +57,7 @@ public class ForgetPasswordController {
 		
 		ForgetPassword forgetPassword = ForgetPassword.builder()
 										.otp(otp)
-										.expirationTime(new Date(System.currentTimeMillis()+(5*60*1000)))
+										.expirationTime(new Date(System.currentTimeMillis()+5*60*1000))
 										.user(user)
 										.build();
 		emailService.sendSimpleMessage(mailBody);

@@ -3253,3 +3253,328 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 19:45:29.489
 !MESSAGE Classpath changed for project: movieApi
+!SESSION 2024-06-27 20:11:25.208 -----------------------------------------------
+eclipse.buildId=4.22.0.202403071427
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-06-27 20:11:28.608
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-06-27 20:11:28.919
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-06-27 20:11:32.911
+!MESSAGE Logback config file: C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.ui 2 0 2024-06-27 20:11:33.511
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-06-27 20:11:33.511
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-06-27 20:11:33.920
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-06-27 20:11:33.920
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-06-27 20:11:38.131
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gaurang Dalvadi'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.362
+!MESSAGE Boot project ADDED: Crash_Course
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.364
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.408
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-06-27 20:11:38.443
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143\jre\bin\javaw.exe
+-cp
+C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=C:/Users/Gaurang Dalvadi/Desktop/Spring_Boot_Project/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1719499298441
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.444
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.468
+!MESSAGE Boot project ADDED: E-Learning_Platform
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.472
+!MESSAGE Boot project ADDED: EmailOtpVerfication
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-06-27 20:11:38.474
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 15976
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.475
+!MESSAGE Boot project ADDED: Hotel-Management
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.477
+!MESSAGE Boot project ADDED: Jwt_Security
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.479
+!MESSAGE Boot project ADDED: Microservice_Project
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.481
+!MESSAGE Boot project ADDED: Product_Management
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.482
+!MESSAGE Boot project ADDED: UserListShow
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.484
+!MESSAGE Boot project ADDED: User_Management
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.486
+!MESSAGE Boot project ADDED: blog-app-apis
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.488
+!MESSAGE Boot project ADDED: hibernate-jpa
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.490
+!MESSAGE Boot project ADDED: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:11:38.492
+!MESSAGE Boot project ADDED: scratchProject
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2024-06-27 20:11:45.351
+!MESSAGE Cannot invoke "org.eclipse.m2e.core.project.IMavenProjectFacade.getArtifactKey()" because "facade" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.project.IMavenProjectFacade.getArtifactKey()" because "facade" is null
+	at org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.createProjectBuild(ClasspathUtil.java:235)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:146)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface 2 0 2024-06-27 20:16:33.705
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-06-27 20:16:33.705
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.text.delete.line"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.match_pair_outward,Match Pair Outward,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.match_pair_outward"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.jface 2 0 2024-06-27 20:21:57.515
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-06-27 20:21:57.515
+!MESSAGE A conflict occurred for CTRL+SHIFT+/:
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.addBlockCommentCommand,Add Block Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm4e.languageconfiguration.addBlockCommentCommand"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.toggle_comment,Toggle Comment,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.toggle_comment"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:22:09.512
+!MESSAGE Classpath changed for project: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:22:12.406
+!MESSAGE Classpath changed for project: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:22:15.491
+!MESSAGE Classpath changed for project: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:22:46.660
+!MESSAGE Classpath changed for project: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:25:08.395
+!MESSAGE Classpath changed for project: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:25:08.711
+!MESSAGE Classpath changed for project: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 20:25:11.206
+!MESSAGE Classpath changed for project: movieApi
+!SESSION 2024-06-27 21:15:24.300 -----------------------------------------------
+eclipse.buildId=4.22.0.202403071427
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-06-27 21:15:26.917
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-06-27 21:15:27.215
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-06-27 21:15:30.124
+!MESSAGE Logback config file: C:\Users\Gaurang Dalvadi\Desktop\Spring_Boot_Project\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.ui 2 0 2024-06-27 21:15:30.642
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-06-27 21:15:30.642
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-06-27 21:15:31.035
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-06-27 21:15:31.035
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-06-27 21:15:36.224
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.10.v20240120-1143\jre\bin\javaw.exe
+-cp
+C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\Users\Gaurang Dalvadi\Downloads\spring tool suite\sts-4.22.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.53.0.202403071323\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=C:/Users/Gaurang Dalvadi/Desktop/Spring_Boot_Project/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1719503136223
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:36.225
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-06-27 21:15:36.239
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 17960
+
+!ENTRY org.eclipse.jface 2 0 2024-06-27 21:15:37.161
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-06-27 21:15:37.162
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.text.delete.line"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.match_pair_outward,Match Pair Outward,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.match_pair_outward"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-06-27 21:15:37.860
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gaurang Dalvadi'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.048
+!MESSAGE Boot project ADDED: Crash_Course
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.049
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.051
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.061
+!MESSAGE Boot project ADDED: E-Learning_Platform
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.088
+!MESSAGE Boot project ADDED: EmailOtpVerfication
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.096
+!MESSAGE Boot project ADDED: Hotel-Management
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.098
+!MESSAGE Boot project ADDED: Jwt_Security
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.108
+!MESSAGE Boot project ADDED: Microservice_Project
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.119
+!MESSAGE Boot project ADDED: Product_Management
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.123
+!MESSAGE Boot project ADDED: UserListShow
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.150
+!MESSAGE Boot project ADDED: User_Management
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.158
+!MESSAGE Boot project ADDED: blog-app-apis
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.163
+!MESSAGE Boot project ADDED: hibernate-jpa
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.164
+!MESSAGE Boot project ADDED: movieApi
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-06-27 21:15:38.171
+!MESSAGE Boot project ADDED: scratchProject
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2024-06-27 21:15:43.670
+!MESSAGE Cannot invoke "org.eclipse.m2e.core.project.IMavenProjectFacade.getArtifactKey()" because "facade" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.m2e.core.project.IMavenProjectFacade.getArtifactKey()" because "facade" is null
+	at org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.createProjectBuild(ClasspathUtil.java:235)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:146)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface 2 0 2024-06-27 21:15:49.866
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-06-27 21:15:49.866
+!MESSAGE A conflict occurred for CTRL+SHIFT+/:
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.addBlockCommentCommand,Add Block Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm4e.languageconfiguration.addBlockCommentCommand"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.toggle_comment,Toggle Comment,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.toggle_comment"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
