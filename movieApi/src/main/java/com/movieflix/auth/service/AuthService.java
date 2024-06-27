@@ -1,4 +1,4 @@
-package com.movieflix.service;
+package com.movieflix.auth.service;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.movieflix.auth.entity.User;
 import com.movieflix.auth.entity.UserRole;
 import com.movieflix.auth.repository.UserRepository;
-import com.movieflix.auth.service.JwtService;
-import com.movieflix.auth.service.RefreshTokenService;
 import com.movieflix.auth.utils.AuthResponse;
 import com.movieflix.auth.utils.LoginRequest;
 import com.movieflix.auth.utils.RegisterRequest;
@@ -36,7 +34,7 @@ public class AuthService {
 						.role(UserRole.USER)
 						.build();
 		User savedUser = userRepository.save(user);
-		var accessToken = jwtService.generateToken(user);
+		var accessToken = jwtService.generateToken(savedUser);
 		var refreshToken = refreshTokenService.createRefreshToken(savedUser.getEmail());
 		
 		return AuthResponse.builder()
@@ -48,7 +46,8 @@ public class AuthService {
 	
 	public AuthResponse login(LoginRequest loginRequest) {
 		authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
+				new UsernamePasswordAuthenticationToken(
+						loginRequest.getEmail(),
 						loginRequest.getPassword()));
 		
 		var user = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(()-> new UsernameNotFoundException("User not found!"));

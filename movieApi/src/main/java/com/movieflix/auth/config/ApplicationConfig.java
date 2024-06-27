@@ -16,10 +16,14 @@ import com.movieflix.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
-@RequiredArgsConstructor
 public class ApplicationConfig {
 
 	private final UserRepository userRepository;
+
+	public ApplicationConfig(UserRepository userRepository) {
+		super();
+		this.userRepository = userRepository;
+	}
 
 	@Bean
 	public UserDetailsService userDetailsService() {

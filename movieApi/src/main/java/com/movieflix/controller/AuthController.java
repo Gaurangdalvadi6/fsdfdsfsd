@@ -8,19 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.movieflix.auth.entity.RefreshToken;
 import com.movieflix.auth.entity.User;
+import com.movieflix.auth.service.AuthService;
 import com.movieflix.auth.service.JwtService;
 import com.movieflix.auth.service.RefreshTokenService;
 import com.movieflix.auth.utils.AuthResponse;
 import com.movieflix.auth.utils.LoginRequest;
 import com.movieflix.auth.utils.RefreshTokenRequest;
 import com.movieflix.auth.utils.RegisterRequest;
-import com.movieflix.service.AuthService;
-
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-@RequiredArgsConstructor
 public class AuthController {
 
 	private final AuthService authService;
@@ -28,6 +25,12 @@ public class AuthController {
 	private final RefreshTokenService refreshTokenService;
 	
 	private final JwtService jwtService;
+	
+	public AuthController(AuthService authService, RefreshTokenService refreshTokenService, JwtService jwtService) {
+		this.authService = authService;
+		this.refreshTokenService = refreshTokenService;
+		this.jwtService = jwtService;
+	}
 
 	@PostMapping("/register")
 	public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest registerRequest){
@@ -41,8 +44,10 @@ public class AuthController {
 	
 	@PostMapping("/refresh")
 	public ResponseEntity<AuthResponse> refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest){
+		
 		RefreshToken refreshToken = refreshTokenService.verifyRefreshToken(refreshTokenRequest.getRefreshToken());
 		User user = refreshToken.getUser();
+		
 		String accessToken = jwtService.generateToken(user);
 		
 		return ResponseEntity.ok(AuthResponse.builder()
