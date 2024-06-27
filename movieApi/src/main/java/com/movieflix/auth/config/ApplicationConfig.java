@@ -22,50 +22,26 @@ public class ApplicationConfig {
 	private final UserRepository userRepository;
 
 	@Bean
-    public UserDetailsService userDetailsService() {
-        return username -> userRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
-    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService());
-        authenticationProvider.setPasswordEncoder(passwordEncoder());
-        return authenticationProvider;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-//	@Bean
-//	public UserDetailsService userDetailsService() {
-//		return username -> userRepository.findByEmail(username)
-//				.orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
-//	}
-//	
-//	@Bean
-//	public AuthenticationProvider authenticationProvider() {
-//		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-//		authenticationProvider.setUserDetailsService(userDetailsService());
-//		authenticationProvider.setPasswordEncoder(passwordEncoder());
-//		return authenticationProvider;
-//	}
-//	
-//	@Bean
-//	public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-//		return configuration.getAuthenticationManager();
-//	}
-//	
-//	@Bean
-//	public PasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
+	public UserDetailsService userDetailsService() {
+		return username -> userRepository.findByEmail(username)
+				.orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
+	}
+	
+	@Bean
+	public AuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+		authenticationProvider.setUserDetailsService(userDetailsService());
+		authenticationProvider.setPasswordEncoder(passwordEncoder());
+		return authenticationProvider;
+	}
+	
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+		return configuration.getAuthenticationManager();
+	}
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

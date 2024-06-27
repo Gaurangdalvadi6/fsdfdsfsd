@@ -45,36 +45,19 @@ public class AuthService {
 				.build();
 	}
 	
-	public AuthResponse login(LoginRequest loginRequest) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.getEmail(),
-                        loginRequest.getPassword()
-                        )
-        );
-
-        var user = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User not found!"));
-        var accessToken = jwtService.generateToken(user);
-        var refreshToken = refreshTokenService.createRefreshToken(loginRequest.getEmail());
-
-        return AuthResponse.builder()
-                .accessToken(accessToken)
-                .refreshToken(refreshToken.getRefreshToken())
-                .build();
-    }
 	
-//	public AuthResponse login(LoginRequest loginRequest) {
-//		authenticationManager.authenticate(
-//				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
-//						loginRequest.getPassword()));
-//		
-//		var user = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
-//		var accessToken = jwtService.generateToken(user);
-//		var refreshToken = refreshTokenService.createRefreshToken(loginRequest.getEmail());
-//		return AuthResponse.builder()
-//				.accessToken(accessToken)
-//				.refreshToken(refreshToken.getRefreshToken())
-//				.build();
-//		
-//	}
+	public AuthResponse login(LoginRequest loginRequest) {
+		authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
+						loginRequest.getPassword()));
+		
+		var user = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
+		var accessToken = jwtService.generateToken(user);
+		var refreshToken = refreshTokenService.createRefreshToken(loginRequest.getEmail());
+		return AuthResponse.builder()
+				.accessToken(accessToken)
+				.refreshToken(refreshToken.getRefreshToken())
+				.build();
+		
+	}
 }
