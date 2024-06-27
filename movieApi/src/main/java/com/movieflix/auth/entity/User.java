@@ -53,6 +53,9 @@ public class User implements UserDetails {
 	private String password;
 	
 	@OneToOne(mappedBy = "user")
+	private ForgetPassword forgetPassword;
+	
+	@OneToOne(mappedBy = "user")
 	private RefreshToken refreshToken;
 
 	@Enumerated(EnumType.STRING)
