@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
-    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
-    <fullyQualifiedTypeName name="com.deliveryboy.service.KafkaService"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.kafka.annotation.KafkaListener"/>
-    <fullyQualifiedTypeName name="com.enduser.config.AppConstants"/>
-    <fullyQualifiedTypeName name="org.springframework.batch.item.ItemProcessor"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="org.springframework.batch.core.job.builder.JobBuilder"/>
     <fullyQualifiedTypeName name="org.springframework.batch.core.step.builder.StepBuilder"/>
     <fullyQualifiedTypeName name="org.springframework.core.io.ClassPathResource"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="int"/>
     <fullyQualifiedTypeName name="com.batch.config.UserItemProcessor"/>
     <fullyQualifiedTypeName name="org.springframework.batch.item.database.JpaItemWriter"/>
@@ -24,12 +10,8 @@
     <fullyQualifiedTypeName name="org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider"/>
     <fullyQualifiedTypeName name="org.springframework.batch.item.database.JdbcBatchItemWriter"/>
     <fullyQualifiedTypeName name="com.batch.model.User"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.batch.core.launch.support.RunIdIncrementer"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.core.RowMapper"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
@@ -43,7 +25,6 @@
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.batch.core.configuration.annotation.JobBuilderFactory"/>
     <fullyQualifiedTypeName name="org.springframework.batch.core.configuration.annotation.StepBuilderFactory"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="com.batch.repo.CustomerRepository"/>
     <fullyQualifiedTypeName name="org.springframework.batch.item.file.FlatFileItemReader"/>
@@ -60,4 +41,23 @@
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.graphql.entities.Order"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.graphql.repositories.UserRepository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.graphql.entities.User"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.graphql.exception.ExceptionHandler"/>
 </qualifiedTypeNameHistroy>
