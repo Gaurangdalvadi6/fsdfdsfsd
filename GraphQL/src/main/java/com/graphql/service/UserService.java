@@ -34,6 +34,15 @@ public class UserService {
 		return user;
 	}
 	// updating user
+	public User updateUser(User user,Integer userId) {
+		User user2 = userRepository.findById(userId).orElseThrow(ExceptionHandler::throwResourceNotFoundException);
+		user2.setName(user.getName());
+		user2.setEmail(user.getEmail());
+		user2.setPhone(user.getPhone());
+		user2.setPassword(user.getPassword());
+		userRepository.save(user2);
+		return user2;
+	}
 	
 	// delete user
 	public boolean deleteUser(Integer usetId) {
