@@ -1,5 +1,6 @@
 package com.task.entity;
 
+import com.task.dto.UserDto;
 import com.task.enums.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -62,5 +63,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public UserDto getUserDto(){
+        UserDto userDto = new UserDto();
+        userDto.setId(id);
+        userDto.setName(name);
+        userDto.setEmail(email);
+        userDto.setPassword(password);
+        userDto.setUserRole(userRole);
+        return userDto;
     }
 }

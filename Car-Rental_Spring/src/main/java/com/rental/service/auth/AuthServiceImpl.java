@@ -26,7 +26,7 @@ public class AuthServiceImpl implements AuthService{
             newAdminAccount.setPassword(new BCryptPasswordEncoder().encode("admin"));
             newAdminAccount.setUserRole(UserRole.ADMIN);
             userRepository.save(newAdminAccount);
-            System.out.println("Admin account created successfully");
+//            System.out.println("Admin account created successfully");
         }
     }
 
