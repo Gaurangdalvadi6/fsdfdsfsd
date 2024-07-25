@@ -1,6 +1,7 @@
 package com.task.exception;
 
 
+import com.task.payload.APIResponse;
 import com.task.payload.APIValidation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -32,6 +33,13 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
                 .body(new APIValidation<>(errors,HttpStatus.NOT_ACCEPTABLE));
 
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<APIResponse<Void>> resourceNotFoundExceptionHandler(ResourceNotFoundException ex){
+        String message = ex.getMessage();
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new APIResponse<Void>(null,message, HttpStatus.NOT_FOUND));
     }
 
 }
