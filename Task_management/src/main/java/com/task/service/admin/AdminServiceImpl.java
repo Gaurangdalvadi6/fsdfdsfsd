@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +30,7 @@ public class AdminServiceImpl implements AdminService{
         return userRepository.findAll().stream()
                 .filter(user -> user.getUserRole()== UserRole.EMPLOYEE)
                 .map(User::getUserDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -56,7 +56,7 @@ public class AdminServiceImpl implements AdminService{
                 .stream()
                 .sorted(Comparator.comparing(Task::getDueDate).reversed())
                 .map(Task::getTaskDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -71,7 +71,43 @@ public class AdminServiceImpl implements AdminService{
     }
 
     @Override
-    public TaskDto updateTask(Long taskId, TaskDto taskDto) {
-        return null;
+    public TaskDto updateTask(Long taskId,TaskDto taskDto) {
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        Optional<User> optionalUser = userRepository.findById(taskDto.getEmployeeId());
+
+        if (optionalTask.isEmpty()){
+            throw new ResourceNotFoundException("task","id",taskId);
+        }
+        if (optionalUser.isEmpty()){
+            throw new ResourceNotFoundException("user","id",taskDto.getEmployeeId());
+        }
+
+        Task existingTask = optionalTask.get();
+        User user = optionalUser.get();
+        existingTask.setTitle(taskDto.getTitle());
+        existingTask.setPriority(taskDto.getPriority());
+        existingTask.setDueDate(taskDto.getDueDate());
+        existingTask.setDescription(taskDto.getDescription());
+        existingTask.setTaskStatus(mapStringToTaskStatus(String.valueOf(taskDto.getTaskStatus())));
+        existingTask.setUser(user);
+        Task updatedTask = taskRepository.save(existingTask);
+        return updatedTask.getTaskDto();
     }
+
+    @Override
+    public List<TaskDto> searchTaskByTitle(String title) {
+        
+    }
+
+    private TaskStatus mapStringToTaskStatus(String status){
+        return switch (status){
+            case "PENDING" -> TaskStatus.PENDING;
+            case "INPROGRESS" -> TaskStatus.INPROGRESS;
+            case "COMPLETED" -> TaskStatus.COMPLETED;
+            case "DEFERRED" -> TaskStatus.DEFERRED;
+            default -> TaskStatus.CANCELLED;
+        };
+    }
+
+
 }

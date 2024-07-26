@@ -25,9 +25,20 @@ public class APIResponse<T> {
         this.message = message;
     }
 
+    public APIResponse(String message,HttpStatus status){
+        this.message=message;
+        this.status=status;
+    }
+
+    public APIResponse(T data,HttpStatus status){
+        this.data=data;
+        this.status=status;
+    }
+
     public APIResponse(T data,String message,HttpStatus status) {
         this.data = data;
         this.message = message;
         this.status=status;
     }
+
 }
