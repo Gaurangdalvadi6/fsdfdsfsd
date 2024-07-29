@@ -1,5 +1,6 @@
 package com.task.service.admin;
 
+import com.task.dto.CommentDto;
 import com.task.dto.TaskDto;
 import com.task.dto.UserDto;
 
@@ -15,9 +16,13 @@ public interface AdminService {
 
     void deleteTask(Long id);
 
-    TaskDto getTaskById(Long taskId);
+    List<TaskDto> searchTaskByTitle(String title);
 
     TaskDto updateTask(Long taskId,TaskDto taskDto);
 
-    List<TaskDto> searchTaskByTitle(String title);
+    TaskDto getTaskById(Long taskId);
+
+    CommentDto createComment(Long taskId,String content);
+
+    List<CommentDto> getCommentsByTaskId(Long taskId);
 }

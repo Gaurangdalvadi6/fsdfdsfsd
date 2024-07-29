@@ -3,7 +3,6 @@ package com.task.repository;
 import com.task.entity.User;
 import com.task.enums.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

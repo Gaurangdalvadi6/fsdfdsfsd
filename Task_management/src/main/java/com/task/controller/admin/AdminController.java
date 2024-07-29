@@ -1,5 +1,6 @@
 package com.task.controller.admin;
 
+import com.task.dto.CommentDto;
 import com.task.dto.TaskDto;
 import com.task.dto.UserDto;
 import com.task.entity.Task;
@@ -67,5 +68,25 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(updatedTask);
+    }
+
+    @GetMapping("/tasks/search/{title}")
+    public ResponseEntity<List<TaskDto>> searchTask(@PathVariable String title){
+        return ResponseEntity.ok(adminService.searchTaskByTitle(title));
+    }
+
+
+    @PostMapping("/task/comment/{taskId}")
+    public ResponseEntity<CommentDto> createComment(@PathVariable Long taskId,@RequestParam String content){
+        CommentDto createdTaskDto = adminService.createComment(taskId, content);
+        if (createdTaskDto == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdTaskDto);
+    }
+
+    @GetMapping("/comments/{taskId}")
+    public ResponseEntity<List<CommentDto>> getCommentsByTaskId(@PathVariable Long taskId){
+        return ResponseEntity.ok(adminService.getCommentsByTaskId(taskId));
     }
 }

@@ -1,18 +1,24 @@
 package com.task.service.admin;
 
+import com.task.dto.CommentDto;
 import com.task.dto.TaskDto;
 import com.task.dto.UserDto;
+import com.task.entity.Comment;
 import com.task.entity.Task;
 import com.task.entity.User;
 import com.task.enums.TaskStatus;
 import com.task.enums.UserRole;
 import com.task.exception.ResourceNotFoundException;
+import com.task.repository.CommentRepository;
 import com.task.repository.TaskRepository;
 import com.task.repository.UserRepository;
+import com.task.utils.JwtUtil;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +31,10 @@ public class AdminServiceImpl implements AdminService{
 
     private final TaskRepository taskRepository;
 
+    private final JwtUtil jwtUtil;
+
+    private final CommentRepository commentRepository;
+
     @Override
     public List<UserDto> getUsers() {
         return userRepository.findAll().stream()
@@ -36,7 +46,11 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public TaskDto createTask(TaskDto taskDto) {
         Optional<User> optionalUser = userRepository.findById(taskDto.getEmployeeId());
-        if (optionalUser.isPresent()){
+
+        if (optionalUser.isEmpty()){
+            throw new ResourceNotFoundException("user","id",taskDto.getEmployeeId());
+        }
+
             Task task = new Task();
             task.setTitle(taskDto.getTitle());
             task.setDescription(taskDto.getDescription());
@@ -46,8 +60,7 @@ public class AdminServiceImpl implements AdminService{
             task.setUser(optionalUser.get());
             Task createdTask = taskRepository.save(task);
             return createdTask.getTaskDto();
-        }
-        return null;
+
     }
 
     @Override
@@ -96,7 +109,31 @@ public class AdminServiceImpl implements AdminService{
 
     @Override
     public List<TaskDto> searchTaskByTitle(String title) {
-        
+        return taskRepository.findAllByTitleContaining(title)
+                .stream()
+                .sorted(Comparator.comparing(Task::getDueDate).reversed())
+                .map(Task::getTaskDto)
+                .toList();
+    }
+
+    @Override
+    public CommentDto createComment(Long taskId, String content) {
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        User user = jwtUtil.getLoggedInUser();
+        if (optionalTask.isPresent() && user!= null){
+            Comment comment = new Comment();
+            comment.setCreateAt(new Date());
+            comment.setContent(content);
+            comment.setTask(optionalTask.get());
+            comment.setUser(user);
+            return commentRepository.save(comment).getCommentDto();
+        }
+        throw new EntityNotFoundException("User or Task not found");
+    }
+
+    @Override
+    public List<CommentDto> getCommentsByTaskId(Long taskId) {
+        return commentRepository.findAllByTaskId(taskId).stream().map(Comment::getCommentDto).toList();
     }
 
     private TaskStatus mapStringToTaskStatus(String status){
