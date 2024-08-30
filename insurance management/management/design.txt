@@ -1,0 +1,8 @@
+com.insurance.management
+├── controller
+├── dto
+├── model
+├── repository
+├── service
+├── exception
+└── config
