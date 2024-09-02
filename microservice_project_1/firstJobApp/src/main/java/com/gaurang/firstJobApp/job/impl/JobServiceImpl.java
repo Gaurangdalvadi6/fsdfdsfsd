@@ -1,11 +1,11 @@
 package com.gaurang.firstJobApp.job.impl;
 
+import com.gaurang.firstJobApp.company.Company;
 import com.gaurang.firstJobApp.job.Job;
 import com.gaurang.firstJobApp.job.JobRepository;
 import com.gaurang.firstJobApp.job.JobService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +13,7 @@ import java.util.Optional;
 public class JobServiceImpl implements JobService {
 
     private final JobRepository jobRepository;
+
 
     public JobServiceImpl(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
@@ -29,6 +30,7 @@ public class JobServiceImpl implements JobService {
     @Override
     public void createJob(Job job) {
 //        job.setId(nextId++);
+        Company company = job.getCompany();
         jobRepository.save(job);
     }
 
@@ -39,12 +41,13 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public boolean deleteJobById(Long id) {
-        try {
-            jobRepository.deleteById(id);
+        Optional<Job> optionalJob = jobRepository.findById(id);
+        if (optionalJob.isPresent()){
+            Job job = optionalJob.get();
+            jobRepository.delete(job);
             return true;
-        }catch (Exception e){
-            return false;
         }
+        return false;
     }
 
     @Override
@@ -57,6 +60,7 @@ public class JobServiceImpl implements JobService {
                 job.setMinSalary(updatedJob.getMinSalary());
                 job.setMaxSalary(updatedJob.getMaxSalary());
                 job.setLocation(updatedJob.getLocation());
+                job.setCompany(updatedJob.getCompany());
                 jobRepository.save(job);
                 return true;
             }

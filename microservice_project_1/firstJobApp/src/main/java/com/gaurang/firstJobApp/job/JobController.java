@@ -1,22 +1,28 @@
 package com.gaurang.firstJobApp.job;
 
+import com.gaurang.firstJobApp.company.Company;
+import com.gaurang.firstJobApp.company.CompanyRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class JobController {
 
     private final JobService jobService;
 
-    public JobController(JobService jobService) {
+    public final CompanyRepository companyRepository;
+
+    public JobController(JobService jobService, CompanyRepository companyRepository) {
         this.jobService = jobService;
+        this.companyRepository = companyRepository;
     }
 
     @GetMapping("/jobs")
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<List<Job>> findAll(){
         List<Job> jobs = jobService.findAll();
 
         if (jobs.isEmpty()){
@@ -27,6 +33,11 @@ public class JobController {
 
     @PostMapping("/jobs")
     public ResponseEntity<String> createJob(@RequestBody Job job){
+        Long id = job.getCompany().getId();
+        Optional<Company> optionalCompany = companyRepository.findById(id);
+        if (optionalCompany.isEmpty()){
+            return new ResponseEntity<>("Company not found",HttpStatus.NOT_FOUND);
+        }
         jobService.createJob(job);
         return new ResponseEntity<>("Job added successfully",HttpStatus.CREATED);
     }
@@ -49,6 +60,11 @@ public class JobController {
 
     @PutMapping("/jobs/{id}")
     public ResponseEntity<String> updateJob(@PathVariable Long id,@RequestBody Job updatedJob){
+        Long id1 = updatedJob.getCompany().getId();
+        Optional<Company> optionalCompany = companyRepository.findById(id1);
+        if (optionalCompany.isEmpty()){
+            return new ResponseEntity<>("Company not found",HttpStatus.NOT_FOUND);
+        }
         boolean updated = jobService.updateJob(id,updatedJob);
         if (updated)
             return new ResponseEntity<>("Job Updated Successfully",HttpStatus.OK);
