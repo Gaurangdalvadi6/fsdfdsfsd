@@ -57,7 +57,7 @@ public class ReviewController {
         if (isDeleted){
             return new ResponseEntity<>("Review deleted Successfully",HttpStatus.OK);
         }else {
-            return new ResponseEntity<>("Review Not Deleted",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Review Not Deleted",HttpStatus.NOT_FOUND);
         }
     }
 

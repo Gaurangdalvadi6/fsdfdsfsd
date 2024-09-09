@@ -1,6 +1,7 @@
 package com.gaurang.jobms.job;
 
 
+import com.gaurang.jobms.job.dto.JobWithCompanyDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,14 +18,15 @@ public class JobController {
     }
 
     @GetMapping("/jobs")
-    public ResponseEntity<List<Job>> findAll(){
-        List<Job> jobs = jobService.findAll();
+    public ResponseEntity<List<JobWithCompanyDTO>> findAll(){
+        List<JobWithCompanyDTO> jobWithCompanyDTOS = jobService.findAll();
 
-        if (jobs.isEmpty()){
+        if (jobWithCompanyDTOS.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return ResponseEntity.ok(jobs);
+        return ResponseEntity.ok(jobWithCompanyDTOS);
     }
+
 
     @PostMapping("/jobs")
     public ResponseEntity<String> createJob(@RequestBody Job job){
@@ -33,8 +35,8 @@ public class JobController {
     }
 
     @GetMapping("/jobs/{id}")
-    public ResponseEntity<Job> getJobById(@PathVariable Long id){
-        Job job = jobService.getJobById(id);
+    public ResponseEntity<JobWithCompanyDTO> getJobById(@PathVariable Long id){
+        JobWithCompanyDTO job = jobService.getJobById(id);
         if (job!=null)
             return new ResponseEntity<>(job, HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
